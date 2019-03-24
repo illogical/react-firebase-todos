@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Menu, Grid, Checkbox, Header, Card } from "semantic-ui-react";
+import { Checkbox, Header, Card } from "semantic-ui-react";
 import { ITodo } from "../models";
 
 interface TodoItemProps {
@@ -12,28 +12,23 @@ export const TodoItem = ({ todo, completeTodo }: TodoItemProps) => {
     completeTodo(todo.id, !todo.completed);
   };
 
+  const color = todo.completed ? "green" : "orange";
+
   return (
-    <Card>
-      <Card.Header>
+    <Card fluid color={color}>
+      <Card.Header style={{ padding: 5 + "px" }}>
         <Header>
-          <Checkbox fitted onChange={completeClick} checked={todo.completed} />{" "}
+          <Checkbox
+            fitted
+            onChange={completeClick}
+            checked={todo.completed}
+            style={{ paddingTop: 3 + "px" }}
+          />
+          {"   "}
           {todo.title}
         </Header>
       </Card.Header>
       <Card.Content description={todo.description} />
     </Card>
-    // <Menu.Item key={todo.id}>
-    //   <Grid>
-    //     <Grid.Row columns={2}>
-    //       <Grid.Column>
-    //         <Checkbox fitted />
-    //       </Grid.Column>
-    //       <Grid.Column>
-    //         <Header>{todo.title}</Header>
-    //         {todo.description}
-    //       </Grid.Column>
-    //     </Grid.Row>
-    //   </Grid>
-    // </Menu.Item>
   );
 };

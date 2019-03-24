@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Input, Button } from "semantic-ui-react";
+import { Card, Input, Button, Segment, Header } from "semantic-ui-react";
 import * as actions from "../store/actions";
 import { ITodo } from "../models";
 import { connect } from "react-redux";
@@ -43,13 +43,17 @@ const TodoList = ({
 
   return (
     <React.Fragment>
-      <h1>TODO LIST</h1>
-      <Card>
+      <Header>TODO LIST</Header>
+
+      <Card fluid>
         <Input label="Title" {...title} />
         <Input label="Description" {...description} />
         <Button onClick={handleAddClick}>Add</Button>
       </Card>
-      {todoItems}
+
+      <Segment>
+        <Card.Group>{todoItems}</Card.Group>
+      </Segment>
     </React.Fragment>
   );
 };
