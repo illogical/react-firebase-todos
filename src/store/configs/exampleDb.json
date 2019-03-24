@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "completed": false,
+      "description": "Need to make this work.",
+      "title": "Firebase Todo Title",
+      "id": 0
+    },
+    {
+      "completed": false,
+      "description": "Need to make this work better.",
+      "title": "Firebase Todo Title 2",
+      "id": 1
+    }
+  ]
+}

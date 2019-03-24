@@ -7,9 +7,18 @@
     "@types/node": "11.11.6",
     "@types/react": "16.8.8",
     "@types/react-dom": "16.8.3",
+    "@types/react-redux": "^7.0.5",
+    "firebase": "^5.9.1",
+    "lodash": "^4.17.11",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
+    "typesafe-actions": "^3.2.1",
     "typescript": "3.3.4000"
   },
   "scripts": {
