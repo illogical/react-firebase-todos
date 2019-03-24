@@ -8,7 +8,7 @@ import { TodoItem } from "./TodoItem";
 interface TodoListProps {
   todos: ITodo[];
   fetchTodos: () => void;
-  completeTodo: (id: string) => void;
+  completeTodo: (id: string, isComplete: boolean) => void;
   addTodo: (todo: ITodo) => void;
 }
 

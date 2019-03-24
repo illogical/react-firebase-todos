@@ -1,9 +1,11 @@
 import { FETCH_TODOS } from "./types";
 import { ITodo } from "../models";
-import { todosRef } from "./configs/firebase";
+import { getFirebaseRef } from "./configs/firebase";
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
 import { snapshotToArray } from "../utiliites/snapshotToArray";
+
+const todosRef = getFirebaseRef("todos");
 
 export const addTodo = (newTodo: ITodo) => async (
   dispatch: ThunkDispatch<{}, {}, AnyAction>
@@ -13,11 +15,11 @@ export const addTodo = (newTodo: ITodo) => async (
   newTodoRef.set({ ...newTodo, id: newTodoRef.key });
 };
 
-export const completeTodo = (completeTodoId: string) => async (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>
-) => {
-  //todosRef.child(completeTodoId.toString()).remove();
-  todosRef.child(completeTodoId.toString()).update({ completed: true });
+export const completeTodo = (
+  completeTodoId: string,
+  isComplete: boolean = true
+) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  todosRef.child(completeTodoId.toString()).update({ completed: isComplete });
 };
 
 export const fetchTodos = () => async (dispatch: any) => {
@@ -28,5 +30,3 @@ export const fetchTodos = () => async (dispatch: any) => {
     });
   });
 };
-
-//export const fetchTodos = () => todosRef.once("value");

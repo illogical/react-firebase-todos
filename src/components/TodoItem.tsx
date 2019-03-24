@@ -4,19 +4,20 @@ import { ITodo } from "../models";
 
 interface TodoItemProps {
   todo: ITodo;
-  completeTodo: (id: string) => void;
+  completeTodo: (id: string, isComplete: boolean) => void;
 }
 
 export const TodoItem = ({ todo, completeTodo }: TodoItemProps) => {
-  const completeClick = () => {
-    completeTodo(todo.id);
+  const completeClick = (e: any) => {
+    completeTodo(todo.id, !todo.completed);
   };
 
   return (
     <Card>
       <Card.Header>
         <Header>
-          <Checkbox fitted onChange={completeClick} /> {todo.title}
+          <Checkbox fitted onChange={completeClick} checked={todo.completed} />{" "}
+          {todo.title}
         </Header>
       </Card.Header>
       <Card.Content description={todo.description} />
