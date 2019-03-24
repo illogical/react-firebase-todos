@@ -4,7 +4,7 @@ import { ITodo } from "../models";
 
 interface TodoItemProps {
   todo: ITodo;
-  completeTodo: (id: number) => void;
+  completeTodo: (id: string) => void;
 }
 
 export const TodoItem = ({ todo, completeTodo }: TodoItemProps) => {

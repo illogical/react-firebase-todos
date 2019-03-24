@@ -8,7 +8,7 @@ import { TodoItem } from "./TodoItem";
 interface TodoListProps {
   todos: ITodo[];
   fetchTodos: () => void;
-  completeTodo: (id: number) => void;
+  completeTodo: (id: string) => void;
   addTodo: (todo: ITodo) => void;
 }
 
@@ -30,7 +30,7 @@ const TodoList = ({
       title: title.value,
       description: description.value,
       completed: false,
-      id: 4
+      id: "-1"
     };
     addTodo(newTodo);
   };
