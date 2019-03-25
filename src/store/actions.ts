@@ -19,7 +19,7 @@ export const completeTodo = (
   completeTodoId: string,
   isComplete: boolean = true
 ) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
-  todosRef.child(completeTodoId.toString()).update({ completed: isComplete });
+  todosRef.child(completeTodoId).update({ completed: isComplete });
 };
 
 export const fetchTodos = () => async (dispatch: any) => {
