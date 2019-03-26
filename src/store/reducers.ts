@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { FETCH_TODOS } from "./types";
+import { StateType } from "typesafe-actions";
 
 interface IAction {
   type: any;
@@ -15,6 +16,8 @@ const todos = (state = [], action: IAction) => {
   }
 };
 
-export const RootState = combineReducers({
+export const rootReducer = combineReducers({
   todos
 });
+
+export type RootState = StateType<typeof rootReducer>;
