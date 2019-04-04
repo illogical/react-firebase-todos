@@ -23,7 +23,7 @@ const TodoList = ({
 
   useEffect(() => {
     fetchTodos();
-  });
+  }, []);
 
   const handleAddClick = () => {
     const newTodo: ITodo = {

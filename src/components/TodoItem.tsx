@@ -14,15 +14,20 @@ export const TodoItem = ({ todo, completeTodo }: TodoItemProps) => {
 
   const color = todo.completed ? "green" : "orange";
 
+  const styles = {
+    cardHeader: [{ padding: "5px" }],
+    checkbox: [{ paddingTop: "3px" }]
+  };
+
   return (
     <Card fluid color={color}>
-      <Card.Header style={{ padding: 5 + "px" }}>
+      <Card.Header style={...styles.cardHeader}>
         <Header>
           <Checkbox
             fitted
             onChange={completeClick}
             checked={todo.completed}
-            style={{ paddingTop: 3 + "px" }}
+            style={...styles.checkbox}
           />
           {"   "}
           {todo.title}
